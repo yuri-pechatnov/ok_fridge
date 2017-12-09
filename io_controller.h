@@ -5,8 +5,9 @@
 
 class IOController {
 public:
-    virtual ~IOController();
-    virtual void output(string message);
+    virtual ~IOController() = default;
+    virtual void output(string message) = 0;
+    virtual void processInput() = 0;
 };
 
 typedef std::shared_ptr<IOController> IOControllerPtr;

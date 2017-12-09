@@ -10,11 +10,21 @@ Recognizer::Recognizer(Fridge& fridge)
 
 void Recognizer::updateProductList() {
     if (void* rawData = getRawData()) {
-        askFromServer(rawData);
+        if (false) {
+            // case, when local recognition is implemented
+        }
+        else {
+            askFromServer(rawData);
+        }
     } else {
         // we have no camera, so list is static
+        static bool first = true;
+        if (!first) {
+            return;
+        }
         fridge.products.clear();
         fridge.products.emplace_back(new Product{.name = "milk", .amount = 3, .shelfLife = 12345671234, .owner = "Peter"});
+        first = false;
     }
 
 }

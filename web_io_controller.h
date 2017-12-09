@@ -6,4 +6,5 @@
 class WebIOController : public IOController {
 public:
     void output(string message) override;
+    void processInput() override;
 };

@@ -13,6 +13,7 @@ public:
     void processMessageFromBringingModule(string message);
     void processMessageFromFridge(string message);
     void processMessageFromExternalModule(string message);
+    void loop();
 public:
     Fridge fridge;
     BringingModulePtr module;

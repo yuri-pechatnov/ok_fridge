@@ -7,8 +7,8 @@
 
 class ExternalModule {
 public:
-    virtual ~ExternalModule();
-    virtual void receiveMessage(string message);
+    virtual ~ExternalModule() = default;
+    virtual void receiveMessage(string message) = 0;
 };
 
 typedef std::shared_ptr<ExternalModule> ExternalModulePtr;
