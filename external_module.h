@@ -1,5 +1,9 @@
 #pragma once
 
+#include "types_as_in_uml.h"
+#include "fwd.h"
+
+#include <memory>
 
 class ExternalModule {
 public:

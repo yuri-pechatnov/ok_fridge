@@ -8,6 +8,7 @@
 
 class Model {
 public:
+    Model();
     void processMessageFromIOController(string message);
     void processMessageFromBringingModule(string message);
     void processMessageFromFridge(string message);

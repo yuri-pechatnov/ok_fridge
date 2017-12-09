@@ -9,11 +9,10 @@ Recognizer::Recognizer(Fridge& fridge)
 }
 
 void Recognizer::updateProductList() {
-    // we have no camera, so list is static
-    void* rawData = getRawData();
-    if (rawData) {
-        throw std::runtime_error("not implemented");
+    if (void* rawData = getRawData()) {
+        askFromServer(rawData);
     } else {
+        // we have no camera, so list is static
         fridge.products.clear();
         fridge.products.emplace_back(new Product{.name = "milk", .amount = 3, .shelfLife = 12345671234, .owner = "Peter"});
     }
@@ -25,8 +24,8 @@ void* Recognizer::getRawData() {
     return nullptr;
 }
 
-void Recognizer::askFromServer() {
+void Recognizer::askFromServer(void* rawData) {
     if (fridge.model.connectionToServer) {
-        fridge.products = fridge.model.connectionToServer->recognizeProducts(getRawData());
+        fridge.products = fridge.model.connectionToServer->recognizeProducts(rawData);
     }
 }

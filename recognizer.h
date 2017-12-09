@@ -9,8 +9,7 @@ public:
     void updateProductList();
 private:
     void* getRawData();
-    bool tryToRecognize();
-    void askFromServer();
+    void askFromServer(void* rawData);
 
 private:
     Fridge& fridge;

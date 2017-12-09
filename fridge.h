@@ -9,7 +9,7 @@ class Fridge {
 public:
     Fridge(Model& model);
     string getSuggestionsOfRecipes();
-    ProductList getProduct(string name);
+    ProductList getProducts(string name);
     void onDoorClose();
 public:
     ProductList products;
