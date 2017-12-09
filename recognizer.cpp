@@ -2,6 +2,7 @@
 
 #include "model.h"
 
+#include <iostream>
 
 Recognizer::Recognizer(Fridge& fridge)
     : fridge(fridge)
@@ -9,6 +10,7 @@ Recognizer::Recognizer(Fridge& fridge)
 }
 
 void Recognizer::updateProductList() {
+    std::cerr << "Recognizer::updateProductList()" << std::endl;
     if (void* rawData = getRawData()) {
         if (false) {
             // case, when local recognition is implemented

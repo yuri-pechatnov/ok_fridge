@@ -2,6 +2,8 @@
 
 #include "model.h"
 
+#include <iostream>
+
 Fridge::Fridge(Model& model)
     : model(model)
     , statistics(*this)
@@ -26,6 +28,7 @@ string Fridge::getSuggestionsOfRecipes() {
 }
 
 ProductList Fridge::getProducts(string name) {
+    std::cerr << "Fridge::getProducts(" << name << ")" << std::endl;
     ProductList list;
     for (auto product : products) {
         if (product->name == name) {
@@ -36,6 +39,7 @@ ProductList Fridge::getProducts(string name) {
 }
 
 void Fridge::onDoorClose() {
+    std::cerr << "Fridge::onDoorClose()" << std::endl;
     recognizer.updateProductList();
 }
 

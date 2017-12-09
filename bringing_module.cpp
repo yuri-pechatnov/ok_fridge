@@ -12,7 +12,7 @@ BringingModule::BringingModule(Model& model)
 }
 
 void BringingModule::fetchFood(string foodName, string userName) {
-    std::cerr << "fetchFood(" << foodName << ", " << userName << ")\n";
+    std::cerr << "BringingModule::fetchFood(" << foodName << ", " << userName << ")\n";
     auto products = model.fridge.getProducts(foodName);
     if (products.size() == 0) {
         model.processMessageFromBringingModule((string)"{\"source\": \"bringing_module\", \"message\": {\"type\": \"output\", \"text\": \"No food '"
